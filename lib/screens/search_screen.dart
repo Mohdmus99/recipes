@@ -15,7 +15,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../theme/color.dart';
-import '../data.dart';
 import '../widgets/category_item.dart';
 import '../widgets/custom_round_textbox.dart';
 import '../widgets/icon_box.dart';
@@ -511,28 +510,4 @@ class _SearchScreenState extends State<SearchScreen> {
 
   int selectedCategoryIndex = 0;
 
-  Widget buildCategory() {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.fromLTRB(15, 5, 7, 20),
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: List.generate(
-          categories.length,
-          (index) => Padding(
-            padding: const EdgeInsets.only(right: 8),
-            child: CategoryItem(
-              padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
-              data: categories[index],
-              isSelected: index == selectedCategoryIndex,
-              onTap: () {
-                setState(() {
-                  selectedCategoryIndex = index;
-                });
-              },
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 }
